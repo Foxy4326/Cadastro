@@ -5,70 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cadastro para 2026</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      min-height: 100vh;
+      padding: 20px;
     }
     .form-container {
       background: white;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 300px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
     }
     h2 {
-      text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      color: #333;
+      font-size: 24px;
     }
     input {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #ff6b6b;
     }
     button {
       width: 100%;
-      padding: 10px;
-      background-color: #ff6f61;
+      padding: 14px;
+      background: #ff6b6b;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 16px;
+      margin-top: 10px;
+      transition: background 0.3s;
     }
     button:hover {
-      background-color: #e05d52;
+      background: #ff5252;
+    }
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-
   <div class="form-container">
-    <h2>🎉 Cadastre-se!</h2>
+    <h2>🎉 Cadastre-se para 2026!</h2>
     <form id="signupForm">
-      <input type="text" id="name" placeholder="Seu nome" required />
+      <input type="text" id="name" placeholder="Seu nome completo" required />
       <input type="email" id="email" placeholder="Seu e-mail" required />
-      <button type="submit">Avançar para 2026!</button>
+      <button type="submit">Ir para a contagem regressiva!</button>
     </form>
   </div>
 
   <script>
     document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Impede o envio real (sem backend)
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
 
-      // Aqui você poderia enviar os dados para um backend, se quiser
-      // Por enquanto, só redirecionamos
-      alert('Cadastro feito com sucesso! 🎊');
+      // Opcional: validação simples
+      if (!name || !email) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      // Aqui você poderia enviar para um backend (ex: Formspree, Firebase)
+      // Mas como é só redirecionamento, vamos direto:
+      alert(`Obrigado, ${name}! 🎊\nVocê será redirecionado para a contagem regressiva.`);
+      
+      // Redireciona para o site de contagem regressiva
       window.location.href = 'https://foxy4326.github.io/Contagem-regressiva-para-2026/';
     });
   </script>
-
 </body>
 </html>
